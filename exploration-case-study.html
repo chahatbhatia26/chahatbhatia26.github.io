@@ -761,6 +761,103 @@
         const title = document.querySelector(".case-doc-hero__title h1");
         const summary = document.querySelector(".case-doc-hero__summary p");
         const coverImage = document.querySelector(".case-doc-cover__image");
+        const navLinks = document.querySelectorAll(".site-nav a");
+        const overview = document.querySelector(".case-doc-overview");
+        const overviewParagraphs = document.querySelectorAll(
+          ".case-doc-overview__body p"
+        );
+        const problemHeading = document.querySelector(
+          "#problem .case-doc-section__header h2"
+        );
+        const problemParagraphs = document.querySelectorAll(
+          "#problem .case-doc-problem-compare__copy p"
+        );
+        const solutionHeading = document.querySelector(
+          "#solution .case-doc-solution__content h2"
+        );
+        const solutionSection = document.querySelector("#solution");
+        const finalThoughtsSection = document.querySelector("#final-thoughts");
+        const solutionIntro = document.querySelector(
+          "#solution .case-doc-solution__intro"
+        );
+        const solutionParagraphs = document.querySelectorAll(
+          "#solution .case-doc-solution__intro p"
+        );
+        const solutionClosing = document.querySelector(
+          "#solution .case-doc-solution__closing"
+        );
+        const finalThoughtsHeading = document.querySelector(
+          "#final-thoughts .case-doc-section__header h2"
+        );
+        const finalThoughtsKicker = document.querySelector(
+          "#final-thoughts .case-doc-section__header .kicker"
+        );
+        const finalThoughtsParagraphs = document.querySelectorAll(
+          "#final-thoughts .case-doc-next__intro p"
+        );
+        const solutionImage = document.querySelector(
+          "#solution .case-doc-solution__image"
+        );
+        const designDirectionSection = document.querySelector(
+          "#design-direction"
+        );
+        const firstDesignVisual = document.querySelector(
+          "#design .case-doc-design-card:first-child .case-doc-design-card__visual"
+        );
+        const firstDesignImage = document.querySelector(
+          "#design .case-doc-design-card:first-child .case-doc-design-card__visual img"
+        );
+        const secondDesignVisual = document.querySelector(
+          "#design .case-doc-design-card:nth-child(2) .case-doc-design-card__visual"
+        );
+        const secondDesignImage = document.querySelector(
+          "#design .case-doc-design-card:nth-child(2) .case-doc-design-card__visual img"
+        );
+        const secondDesignAnnotations = document.querySelectorAll(
+          "#design .case-doc-design-card:nth-child(2) .case-doc-design-card__annotation"
+        );
+        const secondDesignLabel = document.querySelector(
+          "#design .case-doc-design-card:nth-child(2) .case-doc-design-card__content span"
+        );
+        const secondDesignTitle = document.querySelector(
+          "#design .case-doc-design-card:nth-child(2) .case-doc-design-card__content h3"
+        );
+        const secondDesignParagraphs = document.querySelectorAll(
+          "#design .case-doc-design-card:nth-child(2) .case-doc-design-card__content p"
+        );
+        const thirdDesignVisual = document.querySelector(
+          "#design .case-doc-design-card:nth-child(3) .case-doc-design-card__visual"
+        );
+        const thirdDesignImage = document.querySelector(
+          "#design .case-doc-design-card:nth-child(3) .case-doc-design-card__visual img"
+        );
+        const thirdDesignAnnotations = document.querySelectorAll(
+          "#design .case-doc-design-card:nth-child(3) .case-doc-design-card__annotation"
+        );
+        const thirdDesignLabel = document.querySelector(
+          "#design .case-doc-design-card:nth-child(3) .case-doc-design-card__content span"
+        );
+        const thirdDesignTitle = document.querySelector(
+          "#design .case-doc-design-card:nth-child(3) .case-doc-design-card__content h3"
+        );
+        const thirdDesignParagraphs = document.querySelectorAll(
+          "#design .case-doc-design-card:nth-child(3) .case-doc-design-card__content p"
+        );
+        const designContainer = document.querySelector(
+          "#design .case-doc-design"
+        );
+
+        document.body.classList.add("is-money-co-pilot");
+
+        if (navLinks[3]) {
+          navLinks[3].textContent = "Design";
+          navLinks[3].setAttribute("href", "#design");
+        }
+
+        if (navLinks[4]) {
+          navLinks[4].textContent = "Learnings";
+          navLinks[4].setAttribute("href", "#money-co-pilot-learnings");
+        }
 
         if (metaDescription) {
           metaDescription.setAttribute(
@@ -787,6 +884,489 @@
           coverImage.alt =
             "Money Co-Pilot screens showing AI-guided spending insights, safe-to-spend summaries, category-level issue spotting, and goal progress guidance.";
         }
+
+        if (overviewParagraphs[0]) {
+          overviewParagraphs[0].textContent =
+            "Managing money today isn’t really about tracking—it’s about understanding. Most apps already show where money goes, but users are still left confused about whether they’re doing okay and what to do next.";
+        }
+
+        if (overviewParagraphs[1]) {
+          overviewParagraphs[1].textContent =
+            "This project explores a Money Co-Pilot that goes beyond dashboards and acts as a guiding layer on top of everyday spending. By picking up patterns from transaction signals, it surfaces what actually matters and suggests small, practical changes—without requiring manual effort, helping users feel more in control of their money in a simple, everyday way.";
+        }
+
+        if (problemHeading) {
+          problemHeading.textContent =
+            "Why managing money still feels confusing today";
+        }
+
+        if (problemParagraphs[0]) {
+          problemParagraphs[0].textContent =
+            "Managing money isn’t hard because people don’t care — it’s hard because nothing really helps them make sense of it. Most apps already show transactions, categories, and charts. But even after looking at all that, users are still left wondering if they’re doing okay or slowly messing things up.";
+        }
+
+        if (problemParagraphs[1]) {
+          problemParagraphs[1].textContent =
+            "A lot of these tools expect users to stay on top of everything — track expenses, set budgets, check dashboards. It works in theory, but in real life, people don’t have the time or patience to keep doing this consistently. Over time, it just becomes something they ignore.";
+        }
+
+        if (problemParagraphs[2]) {
+          problemParagraphs[2].textContent =
+            "So people end up in this weird spot — they know they’re overspending sometimes, but they don’t really know why it’s happening or what to change. There’s awareness, but no clear direction.";
+        }
+
+        if (
+          solutionSection &&
+          !document.querySelector("#money-co-pilot-user-needs")
+        ) {
+          const userNeedsSection = document.createElement("section");
+          userNeedsSection.className = "case-doc-section";
+          userNeedsSection.id = "money-co-pilot-user-needs";
+          userNeedsSection.innerHTML = `
+            <div class="shell reveal">
+              <div class="case-doc-user-needs">
+                <div class="case-doc-section__header">
+                  <p class="kicker">What users needs beyond features</p>
+                  <h2>Understanding User Needs</h2>
+                </div>
+
+                <div class="case-doc-user-needs__grid">
+                  <article>
+                    <span class="case-doc-user-needs__cue" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" focusable="false">
+                        <path d="M5 19h14" />
+                        <path d="M7 16v-5" />
+                        <path d="M12 16V8" />
+                        <path d="M17 16v-3" />
+                      </svg>
+                    </span>
+                    <h3>Clarity Over Data</h3>
+                    <p>Users don’t need more numbers or charts — they need to quickly understand what’s going on with their money and whether they’re on track.</p>
+                  </article>
+                  <article>
+                    <span class="case-doc-user-needs__cue" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" focusable="false">
+                        <path d="M6 5l4 10 2-4 6-2-10-4z" />
+                        <path d="M12 11l3 5" />
+                      </svg>
+                    </span>
+                    <h3>Effortless Tracking</h3>
+                    <p>Users don’t want to manually log expenses or manage categories. They expect the system to automatically understand their spending without constant input.</p>
+                  </article>
+                  <article>
+                    <span class="case-doc-user-needs__cue" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" focusable="false">
+                        <path d="M5 12h10" />
+                        <path d="M11 6l6 6-6 6" />
+                      </svg>
+                    </span>
+                    <h3>Simple Next Steps</h3>
+                    <p>It’s not enough to show insights — users want to know what to do next, in a way that feels realistic and easy to follow.</p>
+                  </article>
+                  <article>
+                    <span class="case-doc-user-needs__cue" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" focusable="false">
+                        <path d="M5 7h14" />
+                        <path d="M5 12h14" />
+                        <path d="M5 17h14" />
+                        <circle cx="9" cy="7" r="2" />
+                        <circle cx="15" cy="12" r="2" />
+                        <circle cx="11" cy="17" r="2" />
+                      </svg>
+                    </span>
+                    <h3>Control Without Pressure</h3>
+                    <p>Users want to feel in control of their money, but without strict budgets, guilt, or the pressure of getting everything “right”.</p>
+                  </article>
+                </div>
+              </div>
+            </div>
+          `;
+
+          solutionSection.parentNode.insertBefore(userNeedsSection, solutionSection);
+        }
+
+        if (solutionHeading) {
+          solutionHeading.textContent =
+            "From tracking expenses to understanding behavior";
+        }
+
+        if (solutionParagraphs[0]) {
+          solutionParagraphs[0].textContent =
+            "Instead of only showing transactions and categories, the experience focuses on helping users make sense of their spending in a simple, everyday way. It removes the need for manual tracking and instead builds awareness through patterns that are easy to recognize and act on.";
+        }
+
+        if (solutionParagraphs[1]) {
+          solutionParagraphs[1].textContent =
+            "By relying on passive signals like SMS transactions and usage patterns, the system automatically organizes spending and highlights what actually matters. Instead of dashboards and charts, users see clear observations about their behavior—making it easier to understand where things are going off track.";
+        }
+
+        if (solutionIntro) {
+          const thirdSolutionParagraph =
+            solutionParagraphs[2] || document.createElement("p");
+
+          thirdSolutionParagraph.textContent =
+            "Over time, small, contextual actions and timely nudges support users in making better decisions. Rather than enforcing strict budgets or controls, the experience encourages gradual improvement by suggesting realistic changes based on individual habits.";
+
+          if (!solutionParagraphs[2]) {
+            solutionIntro.appendChild(thirdSolutionParagraph);
+          }
+        }
+
+        if (solutionClosing) {
+          solutionClosing.textContent =
+            "From seeing numbers to taking action: every interaction helps users make better decisions with their money.";
+        }
+
+        if (finalThoughtsKicker) {
+          finalThoughtsKicker.textContent = "Final Thoughts";
+        }
+
+        if (finalThoughtsHeading) {
+          finalThoughtsHeading.textContent = "Final Thoughts";
+        }
+
+        if (finalThoughtsParagraphs[0]) {
+          finalThoughtsParagraphs[0].textContent =
+            "This project was about shifting money management from tracking everything to understanding what actually matters.";
+        }
+
+        if (finalThoughtsParagraphs[1]) {
+          finalThoughtsParagraphs[1].textContent =
+            "Instead of dashboards and data, the focus was on clarity, small nudges, and helping users make better decisions without thinking too much.";
+        }
+
+        if (finalThoughtsParagraphs[2]) {
+          finalThoughtsParagraphs[2].textContent =
+            "The goal wasn’t control—it was confidence. A system that quietly guides, not overwhelms.";
+        } else if (finalThoughtsParagraphs[1]) {
+          const extraParagraph = document.createElement("p");
+          extraParagraph.textContent =
+            "The goal wasn’t control—it was confidence. A system that quietly guides, not overwhelms.";
+          finalThoughtsParagraphs[1].insertAdjacentElement(
+            "afterend",
+            extraParagraph
+          );
+        }
+
+        const updatedFinalThoughtsParagraphs = document.querySelectorAll(
+          "#final-thoughts .case-doc-next__intro p"
+        );
+
+        if (updatedFinalThoughtsParagraphs[3]) {
+          updatedFinalThoughtsParagraphs[3].textContent =
+            "With more time, this could grow into deeper personalization, but even in its current form, it shows how simple, well-timed guidance can make everyday money decisions feel easier.";
+        } else if (updatedFinalThoughtsParagraphs[2]) {
+          const closingParagraph = document.createElement("p");
+          closingParagraph.textContent =
+            "With more time, this could grow into deeper personalization, but even in its current form, it shows how simple, well-timed guidance can make everyday money decisions feel easier.";
+          updatedFinalThoughtsParagraphs[2].insertAdjacentElement(
+            "afterend",
+            closingParagraph
+          );
+        }
+
+        if (
+          finalThoughtsSection &&
+          !document.querySelector("#money-co-pilot-learnings")
+        ) {
+          const learningsSection = document.createElement("section");
+          learningsSection.className = "case-doc-section";
+          learningsSection.id = "money-co-pilot-learnings";
+          learningsSection.innerHTML = `
+            <div class="shell reveal">
+              <div class="case-doc-section__header">
+                <p class="kicker">Learnings</p>
+                <h2>Lessons from building for everyday money decisions</h2>
+              </div>
+
+              <div class="case-doc-section__body case-doc-section__body--narrow">
+                <p>
+                  It’s not about showing less, but about showing what matters most. The right hierarchy made the experience feel simple.
+                </p>
+              </div>
+
+              <div class="case-doc-learnings-list">
+                <article class="case-doc-learning-point">
+                  <span class="case-doc-learning-point__number">1</span>
+                  <div class="case-doc-learning-point__copy">
+                    <h3>Clarity comes from prioritization, not reduction</h3>
+                    <p>
+                    It’s not about showing less, but about showing what matters most. The right hierarchy made the experience feel simple.
+                    </p>
+                  </div>
+                </article>
+
+                <article class="case-doc-learning-point">
+                  <span class="case-doc-learning-point__number">2</span>
+                  <div class="case-doc-learning-point__copy">
+                    <h3>Users need direction, not data</h3>
+                    <p>
+                    Raw transactions don’t help much on their own—clear insights and next steps are what actually drive action.
+                    </p>
+                  </div>
+                </article>
+
+                <article class="case-doc-learning-point">
+                  <span class="case-doc-learning-point__number">3</span>
+                  <div class="case-doc-learning-point__copy">
+                    <h3>Automation reduces effort, but trust needs transparency</h3>
+                    <p>
+                    While automatic tracking removes friction, clearly communicating what data is used builds confidence.
+                    </p>
+                  </div>
+                </article>
+
+                <article class="case-doc-learning-point">
+                  <span class="case-doc-learning-point__number">4</span>
+                  <div class="case-doc-learning-point__copy">
+                    <h3>Behavior change works better with guidance, not control</h3>
+                    <p>
+                    Instead of strict budgets, small, realistic suggestions helped users make better decisions without feeling restricted.
+                    </p>
+                  </div>
+                </article>
+              </div>
+            </div>
+          `;
+
+          finalThoughtsSection.parentNode.insertBefore(
+            learningsSection,
+            finalThoughtsSection
+          );
+        }
+
+        if (solutionImage) {
+          solutionImage.remove();
+        }
+
+        if (designDirectionSection) {
+          designDirectionSection.remove();
+        }
+
+        if (firstDesignVisual) {
+          firstDesignVisual.classList.remove(
+            "case-doc-design-card__visual--screen-flow"
+          );
+          firstDesignVisual.classList.add(
+            "case-doc-design-card__visual--single-mockup",
+            "case-doc-design-card__visual--money-co-pilot-flow"
+          );
+        }
+
+        if (firstDesignImage) {
+          firstDesignImage.src = "./assets/money-co-pilot-loading.png";
+          firstDesignImage.alt =
+            "Money Co-Pilot mobile screen showing the onboarding loading state and welcoming money guidance introduction.";
+        }
+
+        const firstDesignLabel = document.querySelector(
+          "#design .case-doc-design-card:first-child .case-doc-design-card__content span"
+        );
+        const firstDesignTitle = document.querySelector(
+          "#design .case-doc-design-card:first-child .case-doc-design-card__content h3"
+        );
+        const firstDesignParagraphs = document.querySelectorAll(
+          "#design .case-doc-design-card:first-child .case-doc-design-card__content p"
+        );
+
+        if (firstDesignLabel) {
+          firstDesignLabel.textContent = "Context";
+        }
+
+        if (firstDesignTitle) {
+          firstDesignTitle.textContent = "Product Introduction";
+        }
+
+        if (firstDesignParagraphs[0]) {
+          firstDesignParagraphs[0].textContent =
+            "This screen sets the tone for the entire experience before asking users for any input. Instead of leading with features or data, it focuses on positioning the product as something simple, calm, and supportive. The messaging is intentionally conversational, framing the app as a “smart friend” rather than a tool that requires effort or expertise.";
+        }
+
+        if (firstDesignParagraphs[1]) {
+          firstDesignParagraphs[1].textContent =
+            "Key highlights are broken down into small, scannable cards to quickly communicate value—automatic tracking, proactive alerts, and simplified money decisions. The goal here is to build trust and reduce hesitation, making users feel like this will be easy to use before they begin onboarding.";
+        }
+
+        firstDesignParagraphs.forEach((paragraph, index) => {
+          if (index > 1) {
+            paragraph.remove();
+          }
+        });
+
+        if (secondDesignVisual) {
+          secondDesignVisual.classList.remove(
+            "case-doc-design-card__visual--dual-mockup",
+            "case-doc-design-card__visual--annotated"
+          );
+          secondDesignVisual.classList.add(
+            "case-doc-design-card__visual--screen-flow",
+            "case-doc-design-card__visual--money-co-pilot-flow-wide"
+          );
+        }
+
+        if (secondDesignImage) {
+          secondDesignImage.src =
+            "./assets/money-co-pilot-onboarding-flow-2.png";
+          secondDesignImage.alt =
+            "Money Co-Pilot onboarding flow screens showing money goals, income and fixed cost inputs, tone selection, and tracking permissions.";
+        }
+
+        secondDesignAnnotations.forEach((annotation) => {
+          annotation.remove();
+        });
+
+        if (secondDesignLabel) {
+          secondDesignLabel.textContent = "Context";
+        }
+
+        if (secondDesignTitle) {
+          secondDesignTitle.textContent = "Onboarding Flow";
+        }
+
+        if (secondDesignParagraphs[0]) {
+          secondDesignParagraphs[0].textContent =
+            "The goal here was to make getting started feel easy, not like filling out a form. So instead of jumping straight into numbers, the flow begins by asking a simple question—what do you actually want help with? Whether it’s tracking spending, saving, or just staying in control, this helps the app feel relevant from the very first step.";
+        }
+
+        if (secondDesignParagraphs[1]) {
+          secondDesignParagraphs[1].classList.remove(
+            "case-doc-design-card__subheading"
+          );
+          secondDesignParagraphs[1].textContent =
+            "From there, the flow gradually asks for only what’s needed—like income and fixed costs—just enough to build a basic picture. It also lets users choose how they want the co-pilot to talk to them, making the experience feel more personal. Before entering the app, we set one clear expectation: you don’t have to track anything manually. The system takes care of it. Overall, the onboarding is designed to feel guided, lightweight, and quick—so users can start seeing value without friction.";
+        }
+
+        secondDesignParagraphs.forEach((paragraph, index) => {
+          if (index > 1) {
+            paragraph.remove();
+          }
+        });
+
+        if (thirdDesignVisual) {
+          thirdDesignVisual.classList.remove(
+            "case-doc-design-card__visual--triple-phone"
+          );
+          thirdDesignVisual.classList.add(
+            "case-doc-design-card__visual--dual-phone",
+            "case-doc-design-card__visual--money-co-pilot-home"
+          );
+        }
+
+        if (thirdDesignImage) {
+          thirdDesignImage.src = "./assets/money-co-pilot-home.png";
+          thirdDesignImage.alt =
+            "Money Co-Pilot home screens showing safe-to-spend guidance, month snapshot, alerts, and quick actions.";
+        }
+
+        thirdDesignAnnotations.forEach((annotation) => {
+          annotation.remove();
+        });
+
+        if (thirdDesignLabel) {
+          thirdDesignLabel.textContent = "Context";
+        }
+
+        if (thirdDesignTitle) {
+          thirdDesignTitle.textContent = "Home Dashboard";
+        }
+
+        if (thirdDesignParagraphs[0]) {
+          thirdDesignParagraphs[0].textContent =
+            "This screen is designed to answer one simple question quickly—“where do I stand right now?” Instead of showing too much data, it highlights the most important number first: how much is safe to spend. This gives users an immediate sense of control without needing to calculate anything themselves.";
+        }
+
+        if (thirdDesignParagraphs[1]) {
+          thirdDesignParagraphs[1].classList.remove(
+            "case-doc-design-card__subheading"
+          );
+          thirdDesignParagraphs[1].textContent =
+            "The rest of the screen builds context in layers. Users can glance at today’s activity, understand their pace compared to usual spending, and see a simple monthly breakdown without feeling overwhelmed. Alerts and insights are introduced in a subtle, helpful way—pointing out patterns and suggesting small actions instead of sounding alarming. Quick actions like “Ask co-pilot” and “Weekly report” keep the experience actionable. Overall, the dashboard is built to feel calm, informative, and easy to check at any moment.";
+        }
+
+        thirdDesignParagraphs.forEach((paragraph, index) => {
+          if (index > 1) {
+            paragraph.remove();
+          }
+        });
+
+        if (designContainer) {
+          designContainer
+            .querySelectorAll(".money-co-pilot-extra-design")
+            .forEach((card) => card.remove());
+
+          const extraDesignCards = [
+            {
+              title: "Insights",
+              image: "./assets/money-co-pilot-insights.png",
+              alt:
+                "Money Co-Pilot insights screens showing monthly summary, spending leaks, patterns over time, and suggested fixes.",
+              visualClass: "case-doc-design-card__visual--money-co-pilot-insights",
+              paragraphs: [
+                "This screen helps users understand what’s actually going on with their money—without needing to analyse it themselves. Instead of showing too much data, it surfaces only what’s changing, like where spending is increasing or drifting from normal.",
+                "Insights are broken into simple, scannable sections—what’s leaking, what to fix, and patterns over time. Each one comes with a clear, realistic suggestion, so users don’t just see the problem, they know what to do next.",
+                "The focus is on making insights feel actionable, not overwhelming—turning awareness into small, doable changes."
+              ]
+            },
+            {
+              title: "Profile",
+              image: "./assets/money-co-pilot-profile.png",
+              alt:
+                "Money Co-Pilot profile screens showing personal insights, income and costs, connected accounts, and settings.",
+              visualClass: "case-doc-design-card__visual--money-co-pilot-profile",
+              paragraphs: [
+                "This screen gives users a clear view of what the system knows about them and how their setup is shaping their experience. Instead of feeling like a settings page, it brings together key personal insights—like spending patterns, peak days, and top categories—in a way that’s easy to review and adjust.",
+                "It also builds trust by being transparent. Users can see their income and fixed costs, manage connected accounts, and understand exactly what data is being used (and what isn’t). Settings are kept simple and accessible, so users feel in control without having to dig through complex options.",
+                "Overall, the screen is designed to feel like a control center—helping users stay informed, make quick updates, and trust the system guiding their money decisions."
+              ]
+            },
+            {
+              title: "Goals",
+              image: "./assets/money-co-pilot-goals.png",
+              alt:
+                "Money Co-Pilot goals screen showing primary goal progress, suggested set-aside amount, other goals, and completed goals.",
+              visualClass: "case-doc-design-card__visual--money-co-pilot-goals",
+              paragraphs: [
+                "This screen helps users stay connected to what they’re working towards, without turning the app into a savings platform. No money is actually moved or held by the app—instead, it simply reflects progress based on users’ income, spending, and leftover money.",
+                "The primary goal is highlighted to show how far along the user is and when they’re likely to reach it at their current pace. The system then suggests how much can be set aside, guiding users on where their savings could go based on their priorities—without enforcing it.",
+                "Other goals remain lightweight and easy to track, while completed goals act as positive reinforcement. Overall, the experience is designed to keep users informed and motivated—helping them make better allocation decisions without taking control away from them."
+              ]
+            },
+            {
+              title: "History",
+              image: "./assets/money-co-pilot-history.png",
+              alt:
+                "Money Co-Pilot history screen showing automatically tracked transactions, filters, and searchable spending records.",
+              visualClass: "case-doc-design-card__visual--money-co-pilot-history",
+              paragraphs: [
+                "This screen gives users a simple, reliable view of all their transactions—without requiring any manual input. Since everything is automatically tracked, the focus here is on making it easy to scan, search, and understand past spending.",
+                "Transactions are organized in a clean, familiar list with quick filters for income and expenses, helping users find what they need without friction. Instead of overwhelming users with too much detail, each entry shows just enough context—what, when, and how much.",
+                "The goal of this screen isn’t deep analysis, but clarity and recall—so users can quickly answer questions like “Where did my money go?” without having to think too hard."
+              ]
+            },
+          ];
+
+          extraDesignCards.forEach((card) => {
+            const article = document.createElement("article");
+            article.className =
+              "case-doc-design-card money-co-pilot-extra-design";
+            const paragraphsHtml = card.paragraphs
+              .map((paragraph) => `<p>${paragraph}</p>`)
+              .join("");
+            article.innerHTML = `
+              <div class="case-doc-design-card__content">
+                <span>Context</span>
+                <h3>${card.title}</h3>
+                ${paragraphsHtml}
+              </div>
+              <figure class="case-doc-design-card__visual ${card.visualClass}">
+                <img src="${card.image}" alt="${card.alt}" />
+              </figure>
+            `;
+
+            designContainer.appendChild(article);
+          });
+        }
+
       })();
     </script>
 
