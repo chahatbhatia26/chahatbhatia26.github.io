@@ -4029,21 +4029,41 @@ h3 {
 
   .word-of-mouth__rail {
     margin-top: 2.35rem;
-    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .word-of-mouth__rail::-webkit-scrollbar {
+    display: none;
+  }
+
+  .word-of-mouth__ticker {
+    width: max-content;
+    animation: none;
+    transform: none;
+    will-change: auto;
+  }
+
+  .word-of-mouth__ticker > .word-of-mouth__track:last-child {
+    display: none;
   }
 
   .word-of-mouth__track {
+    gap: 1rem;
     padding-left: 0;
+    padding-right: 1rem;
   }
 
-  .testimonial-card {
-    flex-basis: min(20rem, 82vw);
-  }
-
+  .testimonial-card,
   .testimonial-card--compact,
   .testimonial-card--medium,
   .testimonial-card--wide {
     flex-basis: min(20rem, 82vw);
+    scroll-snap-align: start;
   }
 
   .principles {
