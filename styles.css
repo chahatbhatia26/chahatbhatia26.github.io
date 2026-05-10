@@ -63,12 +63,6 @@ body {
     linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
 }
 
-html.has-custom-cursor,
-html.has-custom-cursor body,
-html.has-custom-cursor body * {
-  cursor: none !important;
-}
-
 body::before,
 body::after {
   content: "";
@@ -92,119 +86,6 @@ body::after {
   background:
     radial-gradient(circle at 20% 30%, rgba(17, 18, 22, 0.018), transparent 28%),
     radial-gradient(circle at 80% 60%, rgba(255, 255, 255, 0.18), transparent 24%);
-}
-
-.cursor-dot,
-.cursor-ring {
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 80;
-  pointer-events: none;
-  opacity: 0;
-  transform:
-    translate3d(var(--cursor-x, -100px), var(--cursor-y, -100px), 0)
-    translate(-50%, -50%)
-    rotate(var(--cursor-rotate, 0deg))
-    scale(var(--cursor-scale, 1));
-  transition:
-    opacity 180ms ease,
-    background-color 180ms ease,
-    border-color 180ms ease,
-    box-shadow 180ms ease,
-    transform 180ms ease;
-}
-
-.cursor-dot {
-  width: 0.82rem;
-  height: 0.82rem;
-  border-radius: 999px;
-  background: linear-gradient(145deg, rgba(255, 250, 244, 0.96), rgba(239, 231, 220, 0.94));
-  border: 1.5px solid rgba(18, 18, 22, 0.62);
-  box-shadow:
-    0 6px 16px rgba(18, 15, 18, 0.12),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.42);
-}
-
-.cursor-dot::after {
-  content: "";
-  position: absolute;
-  right: -0.18rem;
-  top: -0.16rem;
-  width: 0.34rem;
-  height: 0.34rem;
-  border-radius: 999px;
-  background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
-  box-shadow: 0 0 0 0.1rem rgba(255, 250, 244, 0.84);
-}
-
-.cursor-ring {
-  width: 2.7rem;
-  height: 2.35rem;
-  border-radius: 1rem 1.25rem 1rem 1.35rem;
-  border: 1px solid rgba(18, 18, 22, 0.14);
-  background:
-    radial-gradient(circle at 28% 28%, rgba(255, 255, 255, 0.56), transparent 34%),
-    rgba(255, 250, 244, 0.22);
-  box-shadow:
-    0 14px 30px rgba(18, 15, 18, 0.1),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(10px);
-  --cursor-rotate: -10deg;
-}
-
-.cursor-ring::before {
-  content: "";
-  position: absolute;
-  left: 0.45rem;
-  bottom: 0.42rem;
-  width: 0.55rem;
-  height: 0.08rem;
-  border-radius: 999px;
-  background: rgba(18, 18, 22, 0.16);
-}
-
-.cursor-ring::after {
-  content: "";
-  position: absolute;
-  right: 0.5rem;
-  top: 0.45rem;
-  width: 0.38rem;
-  height: 0.38rem;
-  border-radius: 999px;
-  border: 1px solid rgba(18, 18, 22, 0.14);
-  background: rgba(255, 250, 244, 0.55);
-}
-
-.cursor-dot.is-visible,
-.cursor-ring.is-visible {
-  opacity: 1;
-}
-
-.cursor-dot.is-hover {
-  --cursor-scale: 0.95;
-  background: linear-gradient(145deg, rgba(255, 250, 244, 1), rgba(244, 235, 226, 0.98));
-}
-
-.cursor-ring.is-hover {
-  --cursor-scale: 1.45;
-  --cursor-rotate: -2deg;
-  border-color: rgba(116, 135, 154, 0.28);
-  background:
-    radial-gradient(circle at 28% 28%, rgba(255, 255, 255, 0.68), transparent 34%),
-    rgba(255, 250, 244, 0.34);
-  box-shadow:
-    0 18px 34px rgba(18, 15, 18, 0.14),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.42);
-}
-
-.cursor-dot.is-pressed {
-  --cursor-scale: 0.78;
-}
-
-.cursor-ring.is-pressed {
-  --cursor-scale: 1.12;
-  --cursor-rotate: 0deg;
 }
 
 img {

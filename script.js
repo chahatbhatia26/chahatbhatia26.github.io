@@ -2,8 +2,6 @@ const header = document.querySelector(".site-header");
 const hero = document.querySelector(".hero");
 const year = document.querySelector("#year");
 const revealItems = document.querySelectorAll(".reveal");
-const cursorDot = document.querySelector(".cursor-dot");
-const cursorRing = document.querySelector(".cursor-ring");
 const offGridCarousel = document.querySelector("[data-off-grid-carousel]");
 const companyVisual = document.querySelector("[data-company-visual]");
 const researchCards = document.querySelector("[data-research-cards]");
@@ -1193,94 +1191,4 @@ if (offGridCarousel) {
       offGridAnimationFrame = window.requestAnimationFrame(animateOffGrid);
     }
   }
-}
-
-const supportsCustomCursor =
-  Boolean(cursorDot && cursorRing) &&
-  !reducedMotion &&
-  window.matchMedia("(pointer: fine)").matches;
-
-if (supportsCustomCursor) {
-  document.documentElement.classList.add("has-custom-cursor");
-
-  const root = document.documentElement;
-  const interactiveSelector = [
-    "a",
-    "button",
-    ".button",
-    ".text-link",
-    ".case-study__link",
-    ".contact__links a",
-  ].join(", ");
-
-  let dotX = -100;
-  let dotY = -100;
-  let ringX = -100;
-  let ringY = -100;
-
-  const setHoverState = (target) => {
-    const isInteractive = Boolean(target?.closest(interactiveSelector));
-    cursorDot.classList.toggle("is-hover", isInteractive);
-    cursorRing.classList.toggle("is-hover", isInteractive);
-  };
-
-  const renderCursor = () => {
-    ringX += (dotX - ringX) * 0.18;
-    ringY += (dotY - ringY) * 0.18;
-
-    root.style.setProperty("--cursor-x", `${dotX}px`);
-    root.style.setProperty("--cursor-y", `${dotY}px`);
-    cursorRing.style.setProperty("--cursor-x", `${ringX}px`);
-    cursorRing.style.setProperty("--cursor-y", `${ringY}px`);
-
-    window.requestAnimationFrame(renderCursor);
-  };
-
-  window.addEventListener(
-    "pointermove",
-    (event) => {
-      dotX = event.clientX;
-      dotY = event.clientY;
-
-      cursorDot.classList.add("is-visible");
-      cursorRing.classList.add("is-visible");
-      setHoverState(event.target);
-    },
-    { passive: true }
-  );
-
-  window.addEventListener(
-    "pointerdown",
-    () => {
-      cursorDot.classList.add("is-pressed");
-      cursorRing.classList.add("is-pressed");
-    },
-    { passive: true }
-  );
-
-  window.addEventListener(
-    "pointerup",
-    () => {
-      cursorDot.classList.remove("is-pressed");
-      cursorRing.classList.remove("is-pressed");
-    },
-    { passive: true }
-  );
-
-  document.documentElement.addEventListener("mouseleave", () => {
-    cursorDot.classList.remove("is-visible", "is-hover", "is-pressed");
-    cursorRing.classList.remove("is-visible", "is-hover", "is-pressed");
-  });
-
-  document.documentElement.addEventListener("mouseenter", () => {
-    cursorDot.classList.add("is-visible");
-    cursorRing.classList.add("is-visible");
-  });
-
-  window.addEventListener("blur", () => {
-    cursorDot.classList.remove("is-visible", "is-hover", "is-pressed");
-    cursorRing.classList.remove("is-visible", "is-hover", "is-pressed");
-  });
-
-  renderCursor();
 }
